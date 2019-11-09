@@ -19,9 +19,9 @@ const ComparisonContainer = styled.div`
   justify-content: space-around;
 `;
 
-const fetchColor = () => {
+const fetchColor = (index) => {
   return new Promise(resolve => {
-    const color = ['blue', 'green', 'red', 'purple', 'orange'][Math.floor(Math.random() * 5)];
+    const color = ['blue', 'green', 'red', 'purple', 'orange'][index % 5];
     setTimeout(() => resolve(color), Math.random() * 10000 + 1000);
   });
 };
@@ -30,7 +30,7 @@ const Box = ({ index = 1 }) => {
   let [color, setColor] = useState('white');
 
   useEffect(() => {
-    fetchColor().then((c) => setColor(c));
+    fetchColor(index).then((c) => setColor(c));
   }, []);
 
   if (color === 'white') return <StyledBox color={color} />;
@@ -49,7 +49,7 @@ const Box2 = ({ index = 1 }) => {
   useEffect(() => {
     const promises = [];
     for (let i = 0; i < index; i++) {
-      promises[i] = fetchColor();
+      promises[i] = fetchColor(index - i);
     }
     Promise.all(promises).then(values => setColors(values));
   }, []);
@@ -67,7 +67,7 @@ const Box3 = ({ index = 1 }) => {
   let [resource, setResource] = useState(null);
 
   useEffect(() => {
-    let colorPromise = fetchColor();
+    let colorPromise = fetchColor(index);
     let resource = wrapPromise(colorPromise);
     setResource(resource);
   }, []);
