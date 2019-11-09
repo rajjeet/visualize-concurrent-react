@@ -26,7 +26,7 @@ const LinkContainer = styled.div`
 
 export function Navigation() {
   return <LinkContainer>
-    <StyledLink to={'/suspense'}>Parallel Fetch & Render</StyledLink>
+    <StyledLink to={'/parallel-fetch-and-render'}>Parallel Fetch & Render</StyledLink>
     <StyledLink to={'/transitions'}>Transitions</StyledLink>
     <StyledLink to={'/high-low-priority-state'}>High/Low Priority State</StyledLink>
     <StyledLink to={'/deferring-state'}>Deferring State</StyledLink>
