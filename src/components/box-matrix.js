@@ -4,9 +4,6 @@ import React from 'react';
 const BoxContainer = styled.div`
   display: flex;  
 `;
-const ExperimentContainer = styled.div`
-  margin: 0 3em;
-`;
 
 const renderComponents = (component, times) => {
   const components = [];
@@ -16,12 +13,10 @@ const renderComponents = (component, times) => {
   return components;
 };
 
-export function BoxMatrix({ title, component, times }) {
+export function BoxMatrix({ component, times }) {
 
-  return <ExperimentContainer>
-    <h2>{title}</h2>
-    <BoxContainer>
+  return <BoxContainer>
       {renderComponents(component, times)}
     </BoxContainer>
-  </ExperimentContainer>;
+
 }

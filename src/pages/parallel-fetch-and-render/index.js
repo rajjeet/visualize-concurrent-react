@@ -7,7 +7,12 @@ import { BoxMatrix } from '../../components/box-matrix';
 
 export const ComparisonContainer = styled.div`
   display: flex;  
-  justify-content: center;    
+  justify-content: center;   
+`;
+
+export const ExperimentContainer = styled.div`
+  margin: 0 2em;
+  min-width: 200px; 
 `;
 
 export const ParallelFetchAndRender = () => {
@@ -15,18 +20,24 @@ export const ParallelFetchAndRender = () => {
     <div>
       <h1>Parallel Fetch & Render</h1>
       <ComparisonContainer>
-        <BoxMatrix title={"Fetch-On-Render"}
-                   times={5}
-                   component={<FetchOnRenderBox index={10} />}
-        />
-        <BoxMatrix title={"Fetch-Then-Render"}
-                   times={5}
-                   component={<FetchThenRenderBox index={10} />}
-        />
-        <BoxMatrix title={"Fetch-As-You-Render"}
-                   times={5}
-                   component={<FetchAsYouRenderBox index={10} />}
-        />
+        <ExperimentContainer>
+          <h2>Fetch-On-Render</h2>
+          <BoxMatrix times={5}
+                     component={<FetchOnRenderBox index={10} />}
+          />
+        </ExperimentContainer>
+        <ExperimentContainer>
+          <h2>Fetch-Then-Render</h2>
+          <BoxMatrix times={5}
+                     component={<FetchThenRenderBox index={10} />}
+          />
+        </ExperimentContainer>
+        <ExperimentContainer>
+          <h2>Fetch-As-You-Render</h2>
+          <BoxMatrix times={5}
+                     component={<FetchAsYouRenderBox index={10} />}
+          />
+        </ExperimentContainer>
       </ComparisonContainer>
     </div>
   );
