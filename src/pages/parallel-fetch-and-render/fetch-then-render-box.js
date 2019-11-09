@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchColor } from './fetch-color';
+import { fetchColor } from '../../utils/fetch-color';
 import { StyledBox } from './styled-box';
 
 export const FetchThenRenderBox = ({ index = 1 }) => {

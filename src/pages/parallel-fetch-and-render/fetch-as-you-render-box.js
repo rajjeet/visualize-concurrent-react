@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { fetchColor } from './fetch-color';
+import { fetchColor } from '../../utils/fetch-color';
 import { wrapPromise } from '../../utils/wrap-promise';
 import { StyledBox } from './styled-box';
 
@@ -16,8 +16,9 @@ export const FetchAsYouRenderBox = ({ index = 1 }) => {
     <div>
       <Suspense fallback={<StyledBox color={'white'} />}>
         <ResourceBox resource={resource} />
+        {index > 1 && <FetchAsYouRenderBox index={index - 1} />}
       </Suspense>
-      {index > 1 && <FetchAsYouRenderBox index={index - 1} />}
+
     </div>
   )
 };

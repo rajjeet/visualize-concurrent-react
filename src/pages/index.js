@@ -11,7 +11,7 @@ export function Index() {
   return <Switch>
     <Route exact path={'/'} component={Home} />
     <Route exact path={'/parallel-fetch-and-render'} component={ParallelFetchAndRender} />
-    <Route exact path={'/transitions'} component={Transitions} />
+    <Route path={'/transitions'} component={Transitions} />
     <Route exact path={'/high-low-priority-state'} component={HighLowPriorityState} />
     <Route exact path={'/deferring-state'} component={DeferringState} />
     <Route exact path={'/suspense-list'} component={SuspenseList} />
