@@ -18,7 +18,7 @@ const StyledButton = styled.button`
 const fetchImage = () => {
   let timeout;
   let promise = new Promise(resolve => {
-    timeout = setTimeout(() => resolve(dogImg), 4000);
+    timeout = setTimeout(() => resolve(dogImg), 5000);
   });
   return {
     cancel() {
@@ -36,7 +36,7 @@ export const Transitions = () => {
   let [page, setPage] = useState(0);
   let [resource, setResource] = useState(null);
   let [resource2, setResource2] = useState(null);
-  let [startTransition, isPending] = useTransition({ timeoutMs: 5000 });
+  let [startTransition, isPending] = useTransition({ timeoutMs: 4000 });
 
   const goNextPageReceding = useCallback((currPage) => {
     let nextPage = currPage + 1;
@@ -69,7 +69,7 @@ export const Transitions = () => {
 
 const Pending = ({ isPending, resource }) => {
   return <ExperimentContainer>
-    <h2>Pending-Skeleton-Complete</h2>
+    <h2>Pending</h2>
     {isPending && <div>Loading dog image...</div>}
     <BoxLoader resource={resource} />
     <ImageLoader resource={resource} />
@@ -78,7 +78,7 @@ const Pending = ({ isPending, resource }) => {
 
 const Receding = ({ resource }) => {
   return <ExperimentContainer>
-    <h2>Receding-Skeleton-Complete</h2>
+    <h2>Receding</h2>
     <BoxLoader resource={resource} />
     <ImageLoader resource={resource} />
   </ExperimentContainer>;
