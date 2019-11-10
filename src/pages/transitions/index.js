@@ -111,13 +111,13 @@ const rotate = keyframes`
   }
 `;
 
-const Loader = styled.div`  
+export const Loader = styled.div`  
   display: inline-block;
   animation: ${rotate} 1s linear infinite;
   width: auto;
   height: auto;
   color: gray;
-  font-size: 10em;  
+  font-size: ${props => props.size ? `${props.size}em` : '10em'};  
 `;
 
 const StyledImg = styled.img`
