@@ -6,7 +6,9 @@ export const FetchOnRenderBox = ({ index = 1, timeout, palette }) => {
   let [color, setColor] = useState('white');
 
   useEffect(() => {
-    fetchColor(index, timeout, palette).then((c) => setColor(c));
+    let {promise, cancel} = fetchColor(index, timeout, palette);
+    promise.then((c) => setColor(c));
+    return () => cancel();
   }, [palette]);
 
   if (color === 'white') return <StyledBox color={color} />;

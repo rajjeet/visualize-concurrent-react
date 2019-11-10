@@ -7,10 +7,14 @@ export const FetchThenRenderBox = ({ index = 1 }) => {
 
   useEffect(() => {
     const promises = [];
+    const cancels = [];
     for (let i = 0; i < index; i++) {
-      promises[i] = fetchColor(index - i);
+      let {promise, cancel} = fetchColor(index - i);
+      promises.push(promise);
+      cancels.push(cancel);
     }
     Promise.all(promises).then(values => setColors(values));
+    return () => cancels.forEach(cancel => cancel());
   }, []);
 
   if (!colors.length) return null;

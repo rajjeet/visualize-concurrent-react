@@ -7,9 +7,10 @@ export const FetchAsYouRenderBox = ({ index = 1 }) => {
   let [resource, setResource] = useState(null);
 
   useEffect(() => {
-    let colorPromise = fetchColor(index);
-    let resource = wrapPromise(colorPromise);
+    let {promise, cancel} = fetchColor(index);
+    let resource = wrapPromise(promise);
     setResource(resource);
+    return cancel;
   }, []);
 
   return (
