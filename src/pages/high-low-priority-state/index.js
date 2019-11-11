@@ -71,14 +71,14 @@ const Experiment = ({title, isPrioritized}) => {
     <>
       <h2>{title}</h2>
       <UpperCaseGenerator onChange={onChange} value={value} resource={resource}
-                          pending={isPending} />
+                          pending={isPending} isPrioritized={isPrioritized} />
     </>
   );
 };
 
 function UpperCaseGenerator(props) {
   return <>
-    <StyledInput onChange={props.onChange} value={props.value} />
+    <StyledInput disabled={!props.isPrioritized && props.pending} onChange={props.onChange} value={props.value} />
     <Suspense fallback={<UpperCaseBoxStyle value={'No result'} />}>
       <UpperCaseBox resource={props.resource} />
     </Suspense>
