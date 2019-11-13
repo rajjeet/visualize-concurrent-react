@@ -41,7 +41,7 @@ const SlowList = memo(function SlowList({ text }) {
 const generateListItems = (text) => {
   let list = [];
   for (let i = 0; i < 200; i++) {
-    list.push(<ListItem text={text} />)
+    list.push(<ListItem key={i} text={text} />)
   }
   return list;
 };
