@@ -17,7 +17,7 @@
   "author": "Rajjeet Phull",
   "license": "ISC",
   "dependencies": {
-    "react": "^0.0.0-experimental-38dd17ab9",
+    "react": "^0.14.0",
     "react-dom": "^0.0.0-experimental-38dd17ab9",
     "react-router-dom": "^5.1.2",
     "styled-components": "^4.4.1"
